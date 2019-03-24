@@ -56,14 +56,13 @@ for ($i = 0; $i < $picnum; $i++) {
     if ($picsize > 2 * 1024 * 1024) {
 
         echo "Picture size should not exceed 2MB. Please re-select";
-        exit;//终止当前php的运行
+        exit;//Exit upload process if picture exceed size
     }
 
     $type = strstr($picname, ".");
     if ($type != ".gif" && $type != ".jpg" && $type != ".png") {
-        //图片格式不正确
         echo $type . "----The picture format is incorrect";
-        exit;
+        exit;//Exit upload process if picture format incorrect
     }
 
 

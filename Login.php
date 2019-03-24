@@ -23,7 +23,6 @@
             header('location:homePage.php');
             exit;
         } else {
-            header('location:Login.php');
             echo "<script>alert('Password mismatch');</script>";
         }
     }

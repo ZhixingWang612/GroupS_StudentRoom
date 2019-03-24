@@ -1,28 +1,35 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: studentroom
--- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 24, 2019 at 11:11 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;t_usert_user
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `studentroom`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_apply`
 --
 
 DROP TABLE IF EXISTS `t_apply`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_apply` (
+CREATE TABLE IF NOT EXISTS `t_apply` (
   `i_apply` int(11) NOT NULL AUTO_INCREMENT,
   `i_user` int(11) DEFAULT NULL,
   `property_img` varchar(45) COLLATE utf8_bin DEFAULT NULL,
@@ -33,16 +40,15 @@ CREATE TABLE `t_apply` (
   `id_number` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`i_apply`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_browse_record`
 --
 
 DROP TABLE IF EXISTS `t_browse_record`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_browse_record` (
+CREATE TABLE IF NOT EXISTS `t_browse_record` (
   `i_browse_record` bigint(20) NOT NULL,
   `i_property` bigint(20) DEFAULT NULL,
   `i_user` bigint(20) DEFAULT NULL,
@@ -50,17 +56,16 @@ CREATE TABLE `t_browse_record` (
   PRIMARY KEY (`i_browse_record`),
   KEY `Index_i_property` (`i_property`),
   KEY `Index_i_user` (`i_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='浏览记录表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Browse History';
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_comment`
 --
 
 DROP TABLE IF EXISTS `t_comment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_comment` (
+CREATE TABLE IF NOT EXISTS `t_comment` (
   `i_comment` bigint(20) NOT NULL,
   `i_property` bigint(20) DEFAULT NULL,
   `floor_num` int(11) DEFAULT NULL,
@@ -71,34 +76,39 @@ CREATE TABLE `t_comment` (
   `reply_date` datetime DEFAULT NULL,
   PRIMARY KEY (`i_comment`),
   KEY `Index_i_property` (`i_property`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='评论表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Comments';
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_contract`
 --
 
 DROP TABLE IF EXISTS `t_contract`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_contract` (
+CREATE TABLE IF NOT EXISTS `t_contract` (
   `i_contract` bigint(20) NOT NULL,
   `startDate` datetime DEFAULT NULL,
   `i_legaladvisor` bigint(20) DEFAULT NULL,
   `validate` int(11) DEFAULT NULL,
   `file` varchar(64) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`i_contract`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='合同表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Contracts';
+
+--
+-- Dumping data for table `t_contract`
+--
+
+INSERT INTO `t_contract` (`i_contract`, `startDate`, `i_legaladvisor`, `validate`, `file`) VALUES
+(32, '2019-03-24 00:00:00', 3, 0, '15534418135954');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_document`
 --
 
 DROP TABLE IF EXISTS `t_document`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_document` (
+CREATE TABLE IF NOT EXISTS `t_document` (
   `i_document` bigint(20) NOT NULL,
   `i_user` bigint(20) DEFAULT NULL,
   `title` varchar(64) COLLATE utf8_bin DEFAULT NULL,
@@ -108,17 +118,16 @@ CREATE TABLE `t_document` (
   PRIMARY KEY (`i_document`),
   KEY `Index_i_user` (`i_user`),
   KEY `Index_type` (`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='文件表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Documentations';
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_landlord`
 --
 
 DROP TABLE IF EXISTS `t_landlord`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_landlord` (
+CREATE TABLE IF NOT EXISTS `t_landlord` (
   `i_user` bigint(20) NOT NULL,
   `state` int(11) DEFAULT NULL,
   `property_picture` varchar(64) COLLATE utf8_bin DEFAULT NULL,
@@ -126,32 +135,30 @@ CREATE TABLE `t_landlord` (
   `apply_date` datetime DEFAULT NULL,
   `audit_date` datetime DEFAULT NULL,
   PRIMARY KEY (`i_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='房东信息表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Landlord Info';
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_legaladvisor`
 --
 
 DROP TABLE IF EXISTS `t_legaladvisor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_legaladvisor` (
+CREATE TABLE IF NOT EXISTS `t_legaladvisor` (
   `i_legaladvisor` bigint(20) DEFAULT NULL,
   `first_name` varchar(32) COLLATE utf8_bin DEFAULT NULL,
   `second_name` varchar(32) COLLATE utf8_bin DEFAULT NULL,
   `company` varchar(200) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='法律顾问表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Legal Advisors';
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_order`
 --
 
 DROP TABLE IF EXISTS `t_order`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_order` (
+CREATE TABLE IF NOT EXISTS `t_order` (
   `i_order` bigint(20) NOT NULL AUTO_INCREMENT,
   `i_student` bigint(20) DEFAULT NULL,
   `name` varchar(32) COLLATE utf8_bin DEFAULT NULL,
@@ -173,17 +180,23 @@ CREATE TABLE `t_order` (
   PRIMARY KEY (`i_order`),
   KEY `Index_i_landlord` (`i_landlord`),
   KEY `Index_i_student` (`i_student`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='订单表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Orders';
+
+--
+-- Dumping data for table `t_order`
+--
+
+INSERT INTO `t_order` (`i_order`, `i_student`, `name`, `phone`, `email`, `i_property`, `i_landlord`, `apply_date`, `check_in_time`, `state`, `tanency`, `property_type`, `bill_included`, `contract_type`, `is_verified`, `memo`, `crt_time`, `upd_time`) VALUES
+(32, 1, 'Zhixing', '07521141312', '896730358@qq.com', 1, 2, '2019-03-24 15:32:08', NULL, 51, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_property`
 --
 
 DROP TABLE IF EXISTS `t_property`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_property` (
+CREATE TABLE IF NOT EXISTS `t_property` (
   `i_property` bigint(20) NOT NULL,
   `address` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `full_address` varchar(500) COLLATE utf8_bin DEFAULT NULL,
@@ -218,17 +231,28 @@ CREATE TABLE `t_property` (
   KEY `Index_rent` (`rent_per_week`),
   KEY `Index_smoker` (`smoker`),
   KEY `Index_pets` (`pets`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='房屋信息表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Property Info';
+
+--
+-- Dumping data for table `t_property`
+--
+
+INSERT INTO `t_property` (`i_property`, `address`, `full_address`, `longitude`, `latitude`, `description`, `payment`, `rent_per_week`, `i_owner`, `owner_name`, `phone`, `email`, `smoker`, `pets`, `parlor`, `bedroom`, `kitchen`, `post_code`, `bathroom`, `state`, `release_date`, `img_path`, `detail_description`, `t_propertycol`, `img_path1`, `img_path2`, `img_path3`, `img_path4`) VALUES
+(1, 'near college', NULL, 317, 325, 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', 1, 50, 2, 'Mr. ', NULL, NULL, 1, 1, 1, 2, 1, '360024', 1, NULL, '2019-02-01', 'img\\Room1.jpg', 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', NULL, 'img\\Room1.jpg', 'img\\head.jpg', 'img\\house4.png', 'img\\Room1.jpg'),
+(2, 'near road', NULL, 318, 326, 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', 1, 48, 2, 'Mr. Yi', NULL, NULL, 0, 0, 2, 1, 0, '360024', 2, NULL, '2019-02-01', 'img\\Room1.jpg', 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', NULL, 'img\\Room1.jpg', 'img\\head.jpg', 'img\\house4.png', 'img\\Room1.jpg'),
+(3, 'near college', NULL, 319, 327, 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', 1, 47, 2, 'Mr. Y', NULL, NULL, 0, 0, 1, 2, 1, '360024', 1, NULL, '2019-02-01', 'img\\Room1.jpg', 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', NULL, 'img\\Room1.jpg', 'img\\head.jpg', 'img\\house4.png', 'img\\Room1.jpg'),
+(4, 'near road', NULL, 320, 328, 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', 1, 46, 2, 'Mr. I', NULL, NULL, 0, 0, 2, 1, 1, '360024', 2, NULL, '2019-02-01', 'img\\Room1.jpg', 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', NULL, 'img\\Room1.jpg', 'img\\head.jpg', 'img\\house4.png', 'img\\Room1.jpg'),
+(5, 'near college', NULL, 321, 329, 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', 1, 45, 2, 'Mr. N', NULL, NULL, 1, 1, 1, 2, 1, '360024', 1, NULL, '2019-02-01', 'img\\Room1.jpg', 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', NULL, 'img\\Room1.jpg', 'img\\head.jpg', 'img\\house4.png', 'img\\Room1.jpg'),
+(6, 'near road', NULL, 322, 330, 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', 1, 44, 2, 'Mr. S', NULL, NULL, 0, 0, 2, 1, 0, '360024', 2, NULL, '2019-02-01', 'img\\Room1.jpg', 'When we look at the news of the successful persons, we are easy to owe their success to their talent and hard working. Less people will search more information about how these people lived before they made a difference.', NULL, 'img\\Room1.jpg', 'img\\head.jpg', 'img\\house4.png', 'img\\Room1.jpg');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_student_detail`
 --
 
 DROP TABLE IF EXISTS `t_student_detail`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_student_detail` (
+CREATE TABLE IF NOT EXISTS `t_student_detail` (
   `i_student` bigint(20) NOT NULL,
   `year_of_study` int(11) DEFAULT NULL,
   `university` varchar(64) COLLATE utf8_bin DEFAULT NULL,
@@ -238,17 +262,16 @@ CREATE TABLE `t_student_detail` (
   `gender` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `phone_number` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`i_student`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='学生详情表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Student Info';
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_user`
 --
 
 DROP TABLE IF EXISTS `t_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_user` (
+CREATE TABLE IF NOT EXISTS `t_user` (
   `i_user` bigint(20) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(32) COLLATE utf8_bin DEFAULT NULL,
   `last_name` varchar(32) COLLATE utf8_bin DEFAULT NULL,
@@ -266,16 +289,18 @@ CREATE TABLE `t_user` (
   `crt_time` datetime DEFAULT NULL,
   `upd_time` datetime DEFAULT NULL,
   PRIMARY KEY (`i_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User Table';
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Dumping data for table `t_user`
+--
+
+INSERT INTO `t_user` (`i_user`, `first_name`, `last_name`, `gender`, `email`, `phone`, `password`, `remaining_sum`, `birth_date`, `verification_doc`, `type`, `pictrue`, `identity`, `memo`, `crt_time`, `upd_time`) VALUES
+(1, 'Zhixing', 'Wang', 1, '896730358@qq.com', '07521141312', '111', NULL, '1998-06-12', NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(2, 'Penglin', 'Cai', 1, '324343909@qq.com', '07454388398', '123', NULL, '2000-04-02', NULL, 2, NULL, NULL, NULL, NULL, NULL),
+(3, 'Qiliang', 'Huang', 1, '098083984@qq.com', '09823932992', '131', NULL, '1993-05-18', NULL, 4, NULL, NULL, NULL, NULL, NULL);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-03-23 23:54:36

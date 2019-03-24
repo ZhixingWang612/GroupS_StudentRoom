@@ -86,10 +86,6 @@ if (!empty($mypic) && !empty($housePhoto)) {
     }
 
 }else{
-    //重定向浏览器
-    // header("Location: homePage.php");
-
-    //确保重定向后，后续代码不会被执行
     exit;
 }
 ?>

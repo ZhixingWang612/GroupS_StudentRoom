@@ -35,10 +35,9 @@ require 'pagehead.php';
     }
 
     if (empty($_GET["contractID"])) {
-        //重定向浏览器
+        //Redirect to order list if contract is left empty
         header("Location: OrderList.php?page=1");
 
-        //确保重定向后，后续代码不会被执行
         exit;
     } else {
         $constractID = $_GET["contractID"];
