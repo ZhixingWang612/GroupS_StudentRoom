@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="WAMP">
+    <serverData>
+      <paths name="WAMP">
+        <serverdata>
+          <mappings>
+            <mapping deploy="comp0034" local="$USER_HOME$/Desktop/GroupG" web="/comp0034" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

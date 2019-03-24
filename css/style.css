@@ -1,0 +1,45 @@
+body{padding: 0;margin: 0}
+.menu{background-color: dodgerblue;height:80px;}
+.menu h1{float: left;padding-left: 50px}
+.menu ul{list-style-type: none;float: right;padding: 15px 50px}
+.menu li, .Dropdown{display: inline-block}
+.menu img{height: 20px; width: 20px}
+.main{background-image: url(../img/ucl.jpg);height: 824px; background-size: cover}
+.signUp li, .EditYourProfile li{display: inline-block;}
+.signUp fieldset{background-color: dodgerblue; width: 350px;height: auto;margin:0 auto;border: 0;border-radius: 10px;}
+.signUp h3, .Login h3, .EditYourProfile h2, .Upload h3, .Validate h3, .Contract h3{text-align: center; margin: 0;font-size: 40px}
+.signUp,p, .Login P, .EditYourProfile p,.Payment1 P, .Payment2 P, .Upload P, .Validate P, .Contract p{padding-left: 20px;margin: 0}
+.signUp input, .Login input, .EditYourProfile input,.Payment1 input,.Payment2 input,.Upload input, .Validate input, .Contract input{width: 90%;margin-left: 20px; margin-bottom: 20px}
+.signUp button{background-color: black;color: azure; border: 0; font-size: 30px;margin-left: 110px;margin-top: 20px}
+.signUp ul, .EditYourProfile ul{margin: 0}
+.Login  fieldset{background-color: dodgerblue; width: 350px;height: auto;margin:0 auto;border: 0;border-radius: 10px;}
+.Contract fieldset{background-color: dodgerblue; width: 900px;height: auto;margin:0 auto;border: 0;border-radius: 10px;}
+.Login button{background-color: black;color: azure; border: 0; font-size: 30px;margin-left: 120px;margin-top: 20px}
+.Dropdown_content{position: absolute;background-color: darkgray; box-shadow: darkgray;}
+.Dropdown_content a{color: black; padding: 10px;text-decoration: none; display: block}
+.EditYourProfile  fieldset, .Payment1 fieldset,.Payment2 fieldset,.Upload fieldset,.Validate fieldset{background-color: dodgerblue; width: 350px;height: auto;margin:0 auto; border: 0;border-radius: 10px;}
+.EditYourProfile button{background-color: black;color: azure; border: 0; font-size: 30px;margin-left: 110px;margin-top: 20px}
+.Payment1 img{width: 60px; height:32px; margin-left: 20px}
+.Payment1 button{background-color: black;color: azure; border: 0; font-size: 30px;margin-left: 60px;margin-top: 20px}
+.Payment2 button, .Upload button, .Validate button , .Contract button{background-color: black;color: azure; border: 0; font-size: 30px;margin-left: 110px;margin-top: 20px}
+.row{height: 200px; width:100%; display: block; background-color: dodgerblue;}
+.col1{width: 33%; height: 200px; display: block; background-color: darkgray; position: center; float: left}
+.col1 img{width: auto; height: auto;padding: 20px}
+.col2{width: 67%; display: block; position: relative; float: right}
+.col1 img{height: 160px; width: auto; align-items: center}
+.language {margin-top: 30px;margin-left: 50%;width: 100px;height: 25px;}
+.upload{ padding: 4px 10px; height: 20px; width:90%;line-height: 20px;margin-left: 20px;margin-bottom: 20px;position: relative; border: 0px; text-decoration: none; color:black;}
+.change{ position: absolute; overflow: hidden; right: 0; top: 0; opacity: 0; }
+.searchroom-b div{float:left;width:50%}
+.btnGroup{position: absolute;left: 10px;}
+.div-a{margin-top: 30px}
+.images{position: absolute;left: -330px;top:-10px;}
+.lab{position:absolute;left: 60px;top:360px;width: 750px;height:250px;background: deepskyblue;}
+.makeApplicationBtn{position: absolute;left: 350px;top: 650px;width: 150px;height: 40px;background: black;color: white;font-size: 17px;border: 0;}
+.map{position: absolute;right: 90px;top: 170px;width:590px;height: 520px;background: cyan;color: white;font-size: 17px;border: 0;}
+.div-d{position: absolute;right: 110px;top: 130px;width:590px;height: 520px;border: 0;}
+.pwd{margin: 0 auto;width: 400px;height: 320px;background: blue;border-radius: 10px;text-align: center;}
+.pwd1{margin-left: 6px;}
+.pwd3{margin-left: -32px;}
+.confirm{margin-left: 20px;margin-bottom: 60px;width: 90px;height: 40px;background: black;color: white;font-size: 17px;border: 0;}
+.back{margin-right: 20px;margin-bottom: 60px;width: 90px;height: 40px;background: black;color: white;font-size: 17px;border: 0;}

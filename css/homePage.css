@@ -1,0 +1,93 @@
+.condition{
+    margin: 0 auto;
+
+    width: 500px;
+    height: 600px;
+    border-radius: 50px;
+    background: rgb(30,144,255);
+}
+.queryCondition{
+    margin-left: 50px;
+    margin-top: 50px;
+    color: black;
+}
+.address{
+    margin-left: 50px;
+    margin-top: 40px;
+}
+.addressInput{
+    margin-left: 50px;
+    width: 380px;
+    height: 30px;
+}
+.Bedroom{
+    margin-left: 50px;
+    width: 50px;
+    height: 50px;
+}
+.Bathroom{
+    margin-left: 230px;
+    margin-top: -68px;
+    width: 50px;
+    height: 50px;
+}
+.price{
+    margin-left: 50px;
+    margin-top: 60px;
+    width: 300px;
+    height: 50px;
+}
+.range{
+    -webkit-appearance: none;
+    width: 380px;
+    border-radius: 10px;
+
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+.range::-webkit-slider-runnable-track {
+    height: 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
+}
+.range:focus {
+    outline: none;
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 25px;
+    width: 25px;
+    margin-top: -5px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: solid 0.125em rgba(205, 224, 230, 0.5);
+    box-shadow: 0 .125em .125em #3b4547;
+}
+.saleBtn{
+    margin-left: 90px;
+    margin-top: 60px;
+    width: 100px;
+    height: 40px;
+    background: black;
+    color: white;
+    font-size: 17px;
+    border: 0;
+}
+.rentBtn{
+    margin-left: 90px;
+    margin-top: -60px;
+    width: 100px;
+    height: 40px;
+    background: black;
+    color: white;
+    font-size: 17px;
+    border: 0;
+}
+/*
+.language{
+    margin-top:30px;
+    margin-left: 850px;
+    width: 100px;
+    height: 25px;
+}*/
